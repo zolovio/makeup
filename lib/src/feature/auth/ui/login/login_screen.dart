@@ -1,0 +1,243 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
+import 'package:makeup/src/core/ui/common_widget/common_button.dart';
+import 'package:makeup/src/core/ui/common_widget/social_button.dart';
+import 'package:makeup/src/core/ui/theme.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormBuilderState>();
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: AppColor.black,
+      body: SingleChildScrollView(
+        child: Consumer(builder: (context, ref, _) {
+          // final _vm = ref.watch(loginVmProvider);
+          return FormBuilder(
+            key: _formKey,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 35.w),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: size.height * 0.15.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Sign in',
+                        style: AppDecoration.textStyle(
+                          color: AppColor.yellow,
+                          fontSize: 26.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.015.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: FormBuilderTextField(
+                      style: AppDecoration.textStyle(),
+                      decoration: InputDecoration(
+                          filled: true,
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Image.asset(
+                              'assets/email_icon.png',
+                              height: 2.h,
+                              width: 2.h,
+                              color: AppColor.hintColor,
+                            ),
+                          ),
+                          fillColor: AppColor.textFieldColor,
+                          border: AppDecoration.inputBorder,
+                          focusedBorder: AppDecoration.inputBorder,
+                          enabledBorder: AppDecoration.inputBorder,
+                          hintText: "abc@gmail.com",
+                          hintStyle: AppDecoration.textStyle()),
+                      name: 'email',
+                      controller: emailController,
+                      onChanged: (val) {
+                        _formKey.currentState!.fields['email']!.validate();
+                        setState(() {});
+                      },
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                        FormBuilderValidators.email(),
+                      ]),
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: FormBuilderTextField(
+                      style: AppDecoration.textStyle(),
+                      decoration: InputDecoration(
+                          filled: true,
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Image.asset(
+                              'assets/password_icon.png',
+                              height: 2.h,
+                              width: 2.h,
+                              color: AppColor.hintColor,
+                            ),
+                          ),
+                          fillColor: AppColor.textFieldColor,
+                          border: AppDecoration.inputBorder,
+                          focusedBorder: AppDecoration.inputBorder,
+                          enabledBorder: AppDecoration.inputBorder,
+                          hintText: "Your password",
+                          hintStyle: AppDecoration.textStyle()),
+                      name: 'password',
+                      controller: passwordController,
+                      obscureText: true,
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                      ]),
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: InkWell(
+                      onTap: () {
+                        // Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) {
+                        //   return const ForgotPasswordScreen();
+                        // }));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Forgot Password?',
+                          style: AppDecoration.textStyle(
+                              color: AppColor.yellow, fontSize: 20.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  CommonButton(
+                    buttonText: 'SIGN IN',
+                    onButtonTap: () {
+                      // FocusScope.of(context).unfocus();
+                      // if (_formKey.currentState!.saveAndValidate()) {
+                      //   _vm.onLogin(emailController.text, passwordController.text,
+                      //       context);
+                      // }
+                    },
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: InkWell(
+                      onTap: () {
+                        // Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) {
+                        //   return const SignUpScreen();
+                        // }));
+                      },
+                      child: Text(
+                        'OR',
+                        style: AppDecoration.textStyle(
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.white),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SocialButton(
+                    buttonText: 'Login with Google',
+                    onButtonTap: () {
+                      // FocusScope.of(context).unfocus();
+                      // if (_formKey.currentState!.saveAndValidate()) {
+                      //   _vm.onLogin(emailController.text, passwordController.text,
+                      //       context);
+                      // }
+                    },
+                    assets: 'assets/google_icon.png',
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SocialButton(
+                    buttonText: 'Login with Facebook',
+                    onButtonTap: () {
+                      // FocusScope.of(context).unfocus();
+                      // if (_formKey.currentState!.saveAndValidate()) {
+                      //   _vm.onLogin(emailController.text, passwordController.text,
+                      //       context);
+                      // }
+                    },
+                    assets: 'assets/facebook_icon.png',
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Don’t have an account ? ',
+                        style: AppDecoration.textStyle(
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.white),
+                      ),
+                      SizedBox(
+                        width: 10.h,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          // Navigator.push(context,
+                          //     MaterialPageRoute(builder: (context) {
+                          //   return const SignUpScreen();
+                          // }));
+                        },
+                        child: Text(
+                          'Sign up',
+                          style: AppDecoration.textStyle(
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.darkBlue),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+}
