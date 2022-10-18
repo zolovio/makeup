@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
 import 'package:makeup/src/core/ui/common_widget/common_button.dart';
+import 'package:makeup/src/core/ui/common_widget/common_switch.dart';
 import 'package:makeup/src/core/ui/common_widget/social_button.dart';
 import 'package:makeup/src/core/ui/theme.dart';
 
@@ -118,23 +119,33 @@ class _LoginScreenState extends State<LoginScreen> {
                       keyboardType: TextInputType.emailAddress,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: InkWell(
-                      onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return const ForgotPasswordScreen();
-                        // }));
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Forgot Password?',
-                          style: AppDecoration.textStyle(
-                              color: AppColor.yellow, fontSize: 20.sp),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 6.w),
+                    child: Row(
+                      children: [
+                        CommonSwitch(
+                          label: 'Remember me',
+                          onSwitch: () {},
+                          isActive: true,
                         ),
-                      ),
+                        const Spacer(),
+                        InkWell(
+                          onTap: () {
+                            // Navigator.push(context,
+                            //     MaterialPageRoute(builder: (context) {
+                            //   return const ForgotPasswordScreen();
+                            // }));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Forgot Password?',
+                              style: AppDecoration.textStyle(
+                                  color: AppColor.yellow, fontSize: 20.sp),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
