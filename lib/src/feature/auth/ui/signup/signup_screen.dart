@@ -3,22 +3,24 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:makeup/app.dart';
 import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
 import 'package:makeup/src/core/ui/common_widget/common_button.dart';
-import 'package:makeup/src/core/ui/common_widget/common_switch.dart';
 import 'package:makeup/src/core/ui/common_widget/social_button.dart';
 import 'package:makeup/src/core/ui/theme.dart';
-import 'package:makeup/src/feature/auth/ui/login/login_vm.dart';
+import 'package:makeup/src/feature/auth/ui/signup/signup_vm.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController telephoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormBuilderState>();
 
@@ -27,35 +29,77 @@ class _LoginScreenState extends State<LoginScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColor.black,
+      appBar: AppBar(
+        backgroundColor: AppColor.black,
+        elevation: 0.0,
+        leading: Padding(
+          padding: EdgeInsets.all(6.r),
+          child: IconButton(
+            onPressed: () {
+              navigatorKey.currentState?.pop();
+            },
+            icon: Image.asset('assets/back_arrow.png'),
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Consumer(builder: (context, ref, _) {
-          final _vm = ref.watch(loginVmProvider);
+          final _vm = ref.watch(signupVmProvider);
           return FormBuilder(
             key: _formKey,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 35.w),
               child: Column(
                 children: [
-                  SizedBox(
-                    height: size.height * 0.15.h,
-                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 12.w),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Sign in',
+                        'Sign up',
                         style: AppDecoration.textStyle(
                           color: AppColor.yellow,
                           fontSize: 26.sp,
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
                     height: size.height * 0.015.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: FormBuilderTextField(
+                      style: AppDecoration.textStyle(),
+                      decoration: InputDecoration(
+                          filled: true,
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Image.asset(
+                              'assets/password_icon.png',
+                              height: 2.h,
+                              width: 2.h,
+                              color: AppColor.hintColor,
+                            ),
+                          ),
+                          fillColor: AppColor.textFieldColor,
+                          border: AppDecoration.inputBorder,
+                          focusedBorder: AppDecoration.inputBorder,
+                          enabledBorder: AppDecoration.inputBorder,
+                          hintText: "Full name",
+                          hintStyle: AppDecoration.textStyle()),
+                      name: 'name',
+                      controller: nameController,
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                      ]),
+                      onChanged: (val) {
+                        _formKey.currentState!.fields['name']!.validate();
+                      },
+                      keyboardType: TextInputType.name,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
@@ -100,6 +144,38 @@ class _LoginScreenState extends State<LoginScreen> {
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(15.0),
                             child: Image.asset(
+                              'assets/telephone.png',
+                              height: 2.h,
+                              width: 2.h,
+                              color: AppColor.hintColor,
+                            ),
+                          ),
+                          fillColor: AppColor.textFieldColor,
+                          border: AppDecoration.inputBorder,
+                          focusedBorder: AppDecoration.inputBorder,
+                          enabledBorder: AppDecoration.inputBorder,
+                          hintText: "Mobile number",
+                          hintStyle: AppDecoration.textStyle()),
+                      name: 'mobile',
+                      controller: telephoneController,
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                      ]),
+                      onChanged: (val) {
+                        _formKey.currentState!.fields['mobile']!.validate();
+                      },
+                      keyboardType: TextInputType.phone,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: FormBuilderTextField(
+                      style: AppDecoration.textStyle(),
+                      decoration: InputDecoration(
+                          filled: true,
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Image.asset(
                               'assets/password_icon.png',
                               height: 2.h,
                               width: 2.h,
@@ -122,34 +198,37 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 6.w),
-                    child: Row(
-                      children: [
-                        CommonSwitch(
-                          label: 'Remember me',
-                          onSwitch: () {
-                            _vm.onSwitch();
-                          },
-                          isActive: _vm.isActive,
-                        ),
-                        const Spacer(),
-                        InkWell(
-                          onTap: () {
-                            // Navigator.push(context,
-                            //     MaterialPageRoute(builder: (context) {
-                            //   return const ForgotPasswordScreen();
-                            // }));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Forgot Password?',
-                              style: AppDecoration.textStyle(
-                                  color: AppColor.yellow, fontSize: 20.sp),
+                    padding: const EdgeInsets.all(12.0),
+                    child: FormBuilderTextField(
+                      style: AppDecoration.textStyle(),
+                      decoration: InputDecoration(
+                          filled: true,
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Image.asset(
+                              'assets/password_icon.png',
+                              height: 2.h,
+                              width: 2.h,
+                              color: AppColor.hintColor,
                             ),
                           ),
-                        ),
-                      ],
+                          fillColor: AppColor.textFieldColor,
+                          border: AppDecoration.inputBorder,
+                          focusedBorder: AppDecoration.inputBorder,
+                          enabledBorder: AppDecoration.inputBorder,
+                          hintText: "Your password",
+                          hintStyle: AppDecoration.textStyle()),
+                      name: 'repassword',
+                      obscureText: true,
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                        FormBuilderValidators.match(passwordController.text),
+                      ]),
+                      onChanged: (val) {
+                        _formKey.currentState!.fields['repassword']!.validate();
+                        setState(() {});
+                      },
+                      keyboardType: TextInputType.emailAddress,
                     ),
                   ),
                   SizedBox(
@@ -232,7 +311,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          _vm.onSignupTap();
+                          // Navigator.push(context,
+                          //     MaterialPageRoute(builder: (context) {
+                          //   return const SignUpScreen();
+                          // }));
                         },
                         child: Text(
                           'Sign up',

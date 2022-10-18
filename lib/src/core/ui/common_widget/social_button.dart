@@ -17,8 +17,8 @@ class SocialButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.h,
-      width: MediaQuery.of(context).size.width * 0.8,
+      height: 45.h,
+      width: MediaQuery.of(context).size.width * 0.75,
       decoration: BoxDecoration(
           color: AppColor.white, borderRadius: BorderRadius.circular(15.r)),
       child: InkWell(

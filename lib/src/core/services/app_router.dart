@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:makeup/splash_screen.dart';
 import 'package:makeup/src/feature/auth/ui/login/login_screen.dart';
+import 'package:makeup/src/feature/auth/ui/signup/signup_screen.dart';
 
 class AppRouter {
   static const String splash = '/splash';
   static const String login = '/login';
-  static const String registration = '/registration';
+  static const String signUp = '/signUp';
   static const String forget = '/forget';
   static const String homescreen = '/home';
   static const String addEvent = '/addEvent';
@@ -17,7 +18,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case login:
         return MaterialPageRoute(builder: (_) => LoginScreen());
-
+      case signUp:
+        return MaterialPageRoute(builder: (_) => SignupScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(
