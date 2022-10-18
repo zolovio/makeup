@@ -8,6 +8,7 @@ import 'package:makeup/src/core/ui/common_widget/common_button.dart';
 import 'package:makeup/src/core/ui/common_widget/common_switch.dart';
 import 'package:makeup/src/core/ui/common_widget/social_button.dart';
 import 'package:makeup/src/core/ui/theme.dart';
+import 'package:makeup/src/feature/auth/ui/login/login_vm.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AppColor.black,
       body: SingleChildScrollView(
         child: Consumer(builder: (context, ref, _) {
-          // final _vm = ref.watch(loginVmProvider);
+          final _vm = ref.watch(loginVmProvider);
           return FormBuilder(
             key: _formKey,
             child: Padding(
@@ -125,8 +126,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         CommonSwitch(
                           label: 'Remember me',
-                          onSwitch: () {},
-                          isActive: true,
+                          onSwitch: () {
+                            _vm.onSwitch();
+                          },
+                          isActive: _vm.isActive,
                         ),
                         const Spacer(),
                         InkWell(
