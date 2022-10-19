@@ -87,7 +87,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   ),
                   child: Center(
                     child: Text(
-                      'Back to login',
+                      'Enter code manually',
                       style: AppDecoration.textStyle(
                           fontSize: 25.sp,
                           fontWeight: FontWeight.w300,
