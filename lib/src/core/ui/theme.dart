@@ -25,8 +25,7 @@ class AppColors {
   static const textFieldBorderColor = Color(0xffD9D9D9);
   static const hintColor = Color(0xff7D7D7D);
   static const darkBlue = Color(0xff0047FF);
-  // static const yellow = Color(0xffFFD700);
-
+  static const darkGrey = Color(0xff292929);
 }
 
 ThemeData lightTheme = ThemeData(

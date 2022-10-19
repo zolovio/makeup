@@ -32,7 +32,12 @@ class LoginVm extends ChangeNotifier {
 
   void facebookLogin(BuildContext context) {}
 
-  void googleLogin(BuildContext context) {}
+  void googleLogin(BuildContext context) async {
+    // WaitingScreen.show(context);
+    // await Future.delayed(const Duration(milliseconds: 800));
+    // WaitingScreen.hide(context);
+    // navigatorKey.currentState!.pushNamed(AppRouter.emailVerification);
+  }
 
   void onSignInTap(String email, String password, BuildContext context) {}
 

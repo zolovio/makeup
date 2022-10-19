@@ -32,4 +32,11 @@ class SignupVm extends ChangeNotifier {
     WaitingScreen.hide(context);
     navigatorKey.currentState?.pushReplacementNamed(AppRouter.login);
   }
+
+  Future<void> googleLoginTap(BuildContext context) async {
+    WaitingScreen.show(context);
+    await Future.delayed(const Duration(milliseconds: 800));
+    WaitingScreen.hide(context);
+    navigatorKey.currentState!.pushNamed(AppRouter.emailVerification);
+  }
 }

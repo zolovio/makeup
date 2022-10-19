@@ -248,20 +248,12 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   Align(
                     alignment: Alignment.center,
-                    child: InkWell(
-                      onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return const SignUpScreen();
-                        // }));
-                      },
-                      child: Text(
-                        'OR',
-                        style: AppDecoration.textStyle(
-                            fontSize: 22.sp,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.white),
-                      ),
+                    child: Text(
+                      'OR',
+                      style: AppDecoration.textStyle(
+                          fontSize: 22.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.white),
                     ),
                   ),
                   SizedBox(
@@ -270,10 +262,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   SocialButton(
                     buttonText: 'Login with Google',
                     onButtonTap: () {
-                      // FocusScope.of(context).unfocus();
+                      FocusScope.of(context).unfocus();
                       // if (_formKey.currentState!.saveAndValidate()) {
-                      //   _vm.onLogin(emailController.text, passwordController.text,
-                      //       context);
+                      _vm.googleLoginTap(context);
                       // }
                     },
                     assets: 'assets/google_icon.png',
