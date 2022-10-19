@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColor.black,
+      backgroundColor: AppColors.black,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Consumer(builder: (context, ref, _) {
@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         'Sign in',
                         style: AppDecoration.textStyle(
-                          color: AppColor.yellow,
+                          color: AppColors.yellow,
                           fontSize: 26.sp,
                           fontWeight: FontWeight.w400,
                         ),
@@ -69,10 +69,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               'assets/email_icon.png',
                               height: 2.h,
                               width: 2.h,
-                              color: AppColor.hintColor,
+                              color: AppColors.hintColor,
                             ),
                           ),
-                          fillColor: AppColor.textFieldColor,
+                          fillColor: AppColors.textFieldColor,
                           border: AppDecoration.inputBorder,
                           focusedBorder: AppDecoration.inputBorder,
                           enabledBorder: AppDecoration.inputBorder,
@@ -103,10 +103,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               'assets/password_icon.png',
                               height: 2.h,
                               width: 2.h,
-                              color: AppColor.hintColor,
+                              color: AppColors.hintColor,
                             ),
                           ),
-                          fillColor: AppColor.textFieldColor,
+                          fillColor: AppColors.textFieldColor,
                           border: AppDecoration.inputBorder,
                           focusedBorder: AppDecoration.inputBorder,
                           enabledBorder: AppDecoration.inputBorder,
@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Text(
                               'Forgot Password?',
                               style: AppDecoration.textStyle(
-                                  color: AppColor.yellow, fontSize: 20.sp),
+                                  color: AppColors.yellow, fontSize: 20.sp),
                             ),
                           ),
                         ),
@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: AppDecoration.textStyle(
                             fontSize: 22.sp,
                             fontWeight: FontWeight.w500,
-                            color: AppColor.white),
+                            color: AppColors.white),
                       ),
                     ),
                   ),
@@ -225,21 +225,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: AppDecoration.textStyle(
                             fontSize: 22.sp,
                             fontWeight: FontWeight.w500,
-                            color: AppColor.white),
+                            color: AppColors.white),
                       ),
                       SizedBox(
                         width: 10.h,
                       ),
                       InkWell(
                         onTap: () {
-                          _vm.onSignupTap();
+                          _vm.onSignupTap(context);
                         },
                         child: Text(
                           'Sign up',
                           style: AppDecoration.textStyle(
                               fontSize: 22.sp,
                               fontWeight: FontWeight.w500,
-                              color: AppColor.darkBlue),
+                              color: AppColors.darkBlue),
                         ),
                       ),
                     ],

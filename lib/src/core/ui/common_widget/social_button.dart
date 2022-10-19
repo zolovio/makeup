@@ -20,7 +20,7 @@ class SocialButton extends StatelessWidget {
       height: 45.h,
       width: MediaQuery.of(context).size.width * 0.75,
       decoration: BoxDecoration(
-          color: AppColor.white, borderRadius: BorderRadius.circular(15.r)),
+          color: AppColors.white, borderRadius: BorderRadius.circular(15.r)),
       child: InkWell(
         onTap: () => onButtonTap(),
         child: Row(
@@ -36,7 +36,7 @@ class SocialButton extends StatelessWidget {
             Text(
               buttonText,
               style: AppDecoration.textStyle(
-                color: AppColor.black,
+                color: AppColors.black,
                 fontSize: 25.sp,
                 // fontWeight: FontWeight.w500,
               ),

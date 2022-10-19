@@ -28,7 +28,7 @@ class CommonSwitch extends StatelessWidget {
               height: 20.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.r),
-                color: AppColor.white,
+                color: AppColors.white,
               ),
               child: Row(
                 mainAxisAlignment:
@@ -41,7 +41,8 @@ class CommonSwitch extends StatelessWidget {
                       height: 20.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.r),
-                        color: isActive ? AppColor.yellow : AppColor.hintColor,
+                        color:
+                            isActive ? AppColors.yellow : AppColors.hintColor,
                       ),
                     ),
                   )
@@ -53,7 +54,7 @@ class CommonSwitch extends StatelessWidget {
         Text(
           label,
           style:
-              AppDecoration.textStyle(color: AppColor.yellow, fontSize: 20.sp),
+              AppDecoration.textStyle(color: AppColors.yellow, fontSize: 20.sp),
         )
       ],
     );

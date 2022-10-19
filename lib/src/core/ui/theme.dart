@@ -13,7 +13,7 @@ class HexColor extends Color {
   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
 }
 
-class AppColor {
+class AppColors {
   static final colorPrimary = HexColor('#0d4d96');
   static const black = Colors.black;
   static const white = Colors.white;
@@ -31,11 +31,11 @@ class AppColor {
 
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
-  backgroundColor: AppColor.lightBackground,
-  primaryColor: AppColor.colorPrimary,
+  backgroundColor: AppColors.lightBackground,
+  primaryColor: AppColors.colorPrimary,
   cardColor: Colors.white,
   progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color: AppColor.darkBackground,
+      color: AppColors.darkBackground,
       refreshBackgroundColor: Colors.transparent),
   iconTheme: const IconThemeData(
     color: Colors.black,
@@ -99,5 +99,5 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
   colorScheme:
-      ColorScheme.fromSwatch().copyWith(secondary: AppColor.lightBackground),
+      ColorScheme.fromSwatch().copyWith(secondary: AppColors.lightBackground),
 );

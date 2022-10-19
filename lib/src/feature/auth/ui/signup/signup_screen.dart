@@ -28,9 +28,9 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColor.black,
+      backgroundColor: AppColors.black,
       appBar: AppBar(
-        backgroundColor: AppColor.black,
+        backgroundColor: AppColors.black,
         elevation: 0.0,
         leading: Padding(
           padding: EdgeInsets.all(6.r),
@@ -59,7 +59,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: Text(
                         'Sign up',
                         style: AppDecoration.textStyle(
-                          color: AppColor.yellow,
+                          color: AppColors.yellow,
                           fontSize: 26.sp,
                           fontWeight: FontWeight.w300,
                         ),
@@ -81,10 +81,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               'assets/password_icon.png',
                               height: 2.h,
                               width: 2.h,
-                              color: AppColor.hintColor,
+                              color: AppColors.hintColor,
                             ),
                           ),
-                          fillColor: AppColor.textFieldColor,
+                          fillColor: AppColors.textFieldColor,
                           border: AppDecoration.inputBorder,
                           focusedBorder: AppDecoration.inputBorder,
                           enabledBorder: AppDecoration.inputBorder,
@@ -113,10 +113,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               'assets/email_icon.png',
                               height: 2.h,
                               width: 2.h,
-                              color: AppColor.hintColor,
+                              color: AppColors.hintColor,
                             ),
                           ),
-                          fillColor: AppColor.textFieldColor,
+                          fillColor: AppColors.textFieldColor,
                           border: AppDecoration.inputBorder,
                           focusedBorder: AppDecoration.inputBorder,
                           enabledBorder: AppDecoration.inputBorder,
@@ -147,10 +147,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               'assets/telephone.png',
                               height: 2.h,
                               width: 2.h,
-                              color: AppColor.hintColor,
+                              color: AppColors.hintColor,
                             ),
                           ),
-                          fillColor: AppColor.textFieldColor,
+                          fillColor: AppColors.textFieldColor,
                           border: AppDecoration.inputBorder,
                           focusedBorder: AppDecoration.inputBorder,
                           enabledBorder: AppDecoration.inputBorder,
@@ -179,10 +179,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               'assets/password_icon.png',
                               height: 2.h,
                               width: 2.h,
-                              color: AppColor.hintColor,
+                              color: AppColors.hintColor,
                             ),
                           ),
-                          fillColor: AppColor.textFieldColor,
+                          fillColor: AppColors.textFieldColor,
                           border: AppDecoration.inputBorder,
                           focusedBorder: AppDecoration.inputBorder,
                           enabledBorder: AppDecoration.inputBorder,
@@ -209,10 +209,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               'assets/password_icon.png',
                               height: 2.h,
                               width: 2.h,
-                              color: AppColor.hintColor,
+                              color: AppColors.hintColor,
                             ),
                           ),
-                          fillColor: AppColor.textFieldColor,
+                          fillColor: AppColors.textFieldColor,
                           border: AppDecoration.inputBorder,
                           focusedBorder: AppDecoration.inputBorder,
                           enabledBorder: AppDecoration.inputBorder,
@@ -235,12 +235,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     height: 20.h,
                   ),
                   CommonButton(
-                    buttonText: 'SIGN IN',
+                    buttonText: 'SIGN UP',
                     onButtonTap: () {
-                      // FocusScope.of(context).unfocus();
+                      FocusScope.of(context).unfocus();
                       // if (_formKey.currentState!.saveAndValidate()) {
-                      //   _vm.onLogin(emailController.text, passwordController.text,
-                      //       context);
+                      _vm.onSignupTap(context);
                       // }
                     },
                   ),
@@ -261,7 +260,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         style: AppDecoration.textStyle(
                             fontSize: 22.sp,
                             fontWeight: FontWeight.w500,
-                            color: AppColor.white),
+                            color: AppColors.white),
                       ),
                     ),
                   ),
@@ -304,24 +303,21 @@ class _SignupScreenState extends State<SignupScreen> {
                         style: AppDecoration.textStyle(
                             fontSize: 22.sp,
                             fontWeight: FontWeight.w500,
-                            color: AppColor.white),
+                            color: AppColors.white),
                       ),
                       SizedBox(
                         width: 10.h,
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) {
-                          //   return const SignUpScreen();
-                          // }));
+                          _vm.onSignInTap(context);
                         },
                         child: Text(
-                          'Sign up',
+                          'Sign in',
                           style: AppDecoration.textStyle(
                               fontSize: 22.sp,
                               fontWeight: FontWeight.w500,
-                              color: AppColor.darkBlue),
+                              color: AppColors.darkBlue),
                         ),
                       ),
                     ],
