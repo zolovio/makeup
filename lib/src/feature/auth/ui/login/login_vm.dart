@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:makeup/app.dart';
@@ -20,16 +18,28 @@ class LoginVm extends ChangeNotifier {
     _useCase = AuthUseCase();
   }
 
-  void onSwitch() {
-    log('SwitchTapped');
+  void onRememberSwitch() {
     isActive = !isActive;
     notifyListeners();
   }
 
   void onSignupTap(BuildContext context) async {
     WaitingScreen.show(context);
-    await Future.delayed(Duration(milliseconds: 800));
+    await Future.delayed(const Duration(milliseconds: 800));
     WaitingScreen.hide(context);
     navigatorKey.currentState!.pushNamed(AppRouter.signUp);
+  }
+
+  void facebookLogin(BuildContext context) {}
+
+  void googleLogin(BuildContext context) {}
+
+  void onSignInTap(String email, String password, BuildContext context) {}
+
+  Future<void> onFogotPasswordTap(BuildContext context) async {
+    WaitingScreen.show(context);
+    await Future.delayed(const Duration(milliseconds: 800));
+    WaitingScreen.hide(context);
+    navigatorKey.currentState!.pushNamed(AppRouter.forget);
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:makeup/splash_screen.dart';
 import 'package:makeup/src/feature/auth/ui/login/login_screen.dart';
 import 'package:makeup/src/feature/auth/ui/mobile_otp_verification/mobile_otp_verification_screen.dart';
+import 'package:makeup/src/feature/auth/ui/reset_password/reset_password_screen.dart';
 import 'package:makeup/src/feature/auth/ui/signup/signup_screen.dart';
 
 class AppRouter {
@@ -23,6 +24,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => SignupScreen());
       case mobileOtpVerification:
         return MaterialPageRoute(builder: (_) => MobileOtpVerificationScreen());
+      case forget:
+        return MaterialPageRoute(builder: (_) => ResetPasswordScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(

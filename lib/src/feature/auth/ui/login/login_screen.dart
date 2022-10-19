@@ -128,17 +128,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         CommonSwitch(
                           label: 'Remember me',
                           onSwitch: () {
-                            _vm.onSwitch();
+                            _vm.onRememberSwitch();
                           },
                           isActive: _vm.isActive,
                         ),
                         const Spacer(),
                         InkWell(
                           onTap: () {
-                            // Navigator.push(context,
-                            //     MaterialPageRoute(builder: (context) {
-                            //   return const ForgotPasswordScreen();
-                            // }));
+                            _vm.onFogotPasswordTap(context);
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -158,11 +155,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   CommonButton(
                     buttonText: 'SIGN IN',
                     onButtonTap: () {
-                      // FocusScope.of(context).unfocus();
-                      // if (_formKey.currentState!.saveAndValidate()) {
-                      //   _vm.onLogin(emailController.text, passwordController.text,
-                      //       context);
-                      // }
+                      FocusScope.of(context).unfocus();
+                      if (_formKey.currentState!.saveAndValidate()) {
+                        _vm.onSignInTap(emailController.text,
+                            passwordController.text, context);
+                      }
                     },
                   ),
                   SizedBox(
@@ -170,20 +167,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Align(
                     alignment: Alignment.center,
-                    child: InkWell(
-                      onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return const SignUpScreen();
-                        // }));
-                      },
-                      child: Text(
-                        'OR',
-                        style: AppDecoration.textStyle(
-                            fontSize: 22.sp,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.white),
-                      ),
+                    child: Text(
+                      'OR',
+                      style: AppDecoration.textStyle(
+                          fontSize: 22.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.white),
                     ),
                   ),
                   SizedBox(
@@ -192,11 +181,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   SocialButton(
                     buttonText: 'Login with Google',
                     onButtonTap: () {
-                      // FocusScope.of(context).unfocus();
-                      // if (_formKey.currentState!.saveAndValidate()) {
-                      //   _vm.onLogin(emailController.text, passwordController.text,
-                      //       context);
-                      // }
+                      FocusScope.of(context).unfocus();
+                      _vm.googleLogin(context);
                     },
                     assets: 'assets/google_icon.png',
                   ),
@@ -206,11 +192,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   SocialButton(
                     buttonText: 'Login with Facebook',
                     onButtonTap: () {
-                      // FocusScope.of(context).unfocus();
-                      // if (_formKey.currentState!.saveAndValidate()) {
-                      //   _vm.onLogin(emailController.text, passwordController.text,
-                      //       context);
-                      // }
+                      FocusScope.of(context).unfocus();
+                      _vm.facebookLogin(context);
                     },
                     assets: 'assets/facebook_icon.png',
                   ),
