@@ -112,9 +112,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       buttonText: 'CONTINUE',
                       onButtonTap: () {
                         FocusScope.of(context).unfocus();
-                        if (_formKey.currentState!.saveAndValidate()) {
-                          _vm.onContinueTap();
-                        }
+                        // if (_formKey.currentState!.saveAndValidate()) {
+                        _vm.onContinueTap();
+                        // }
                       },
                     ),
                     SizedBox(
