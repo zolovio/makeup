@@ -5,6 +5,7 @@ import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
 import 'package:makeup/src/core/ui/common_widget/category_card.dart';
 import 'package:makeup/src/core/ui/common_widget/review_slider.dart';
 import 'package:makeup/src/core/ui/theme.dart';
+import 'package:makeup/src/feature/categories/base_screen.dart';
 import 'package:makeup/src/feature/categories/categories_vm.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -15,75 +16,9 @@ class CategoriesScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(categoriesVmProvider);
-      return Scaffold(
-        backgroundColor: AppColors.black,
-        appBar: AppBar(
-          backgroundColor: AppColors.black,
-          leading: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Image.asset('assets/side_bar_yellow.png'),
-          ),
-          title: AnimatedContainer(
-            height: size.height * 0.05.h,
-            width: _vm.isSearchExpand ? size.width * 0.8.w : 80.w,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.r),
-                border: Border.all(color: AppColors.yellow, width: 1.5)),
-            duration: const Duration(milliseconds: 800),
-            child: Row(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    _vm.onSearchTap();
-                  },
-                  child: Icon(
-                    Icons.search_rounded,
-                    color: AppColors.yellow,
-                    size: 45.sp,
-                  ),
-                ),
-                _vm.isSearchExpand
-                    ? Flexible(
-                        child: TextField(
-                        style: AppDecoration.textStyle(
-                          color: AppColors.white,
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.normal,
-                        ),
-                        decoration:
-                            const InputDecoration(border: InputBorder.none),
-                        controller: _vm.searchController,
-                      ))
-                    : Container()
-              ],
-            ),
-          ),
-          actions: [
-            Row(
-              children: [
-                !_vm.isSearchExpand
-                    ? Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Image.asset('assets/facebook_yellow.png'),
-                      )
-                    : Container(),
-                !_vm.isSearchExpand
-                    ? Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Image.asset('assets/insta_yellow.png'),
-                      )
-                    : Container(),
-                !_vm.isSearchExpand
-                    ? Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Image.asset('assets/twitter_yellow.png'),
-                      )
-                    : Container(),
-              ],
-            )
-          ],
-        ),
-        body: SizedBox(
+      return BaseScreen(
+        searchController: _vm.searchController,
+        child: SizedBox(
           height: size.height,
           width: size.width,
           child: ListView(
