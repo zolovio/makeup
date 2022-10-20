@@ -78,20 +78,25 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   ),
                 ),
                 SizedBox(height: 80.h),
-                Container(
-                  height: 50.h,
-                  width: size.width * 0.7,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: AppColors.darkGrey,
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Enter code manually',
-                      style: AppDecoration.textStyle(
-                          fontSize: 25.sp,
-                          fontWeight: FontWeight.w300,
-                          color: AppColors.white),
+                InkWell(
+                  onTap: () {
+                    _vm.onEnterCode(context);
+                  },
+                  child: Container(
+                    height: 50.h,
+                    width: size.width * 0.7,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: AppColors.darkGrey,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Enter code manually',
+                        style: AppDecoration.textStyle(
+                            fontSize: 25.sp,
+                            fontWeight: FontWeight.w300,
+                            color: AppColors.white),
+                      ),
                     ),
                   ),
                 ),

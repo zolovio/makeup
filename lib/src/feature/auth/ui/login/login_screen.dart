@@ -156,10 +156,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     buttonText: 'SIGN IN',
                     onButtonTap: () {
                       FocusScope.of(context).unfocus();
-                      if (_formKey.currentState!.saveAndValidate()) {
-                        _vm.onSignInTap(emailController.text,
-                            passwordController.text, context);
-                      }
+                      // if (_formKey.currentState!.saveAndValidate()) {
+                      _vm.onSignInTap(emailController.text,
+                          passwordController.text, context);
+                      // }
                     },
                   ),
                   SizedBox(

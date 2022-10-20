@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:makeup/splash_screen.dart';
+import 'package:makeup/src/feature/auth/ui/email_otp_verification/email_otp_verification_screen.dart';
 import 'package:makeup/src/feature/auth/ui/email_verification/email_verification_screen.dart';
 import 'package:makeup/src/feature/auth/ui/login/login_screen.dart';
 import 'package:makeup/src/feature/auth/ui/mobile_otp_verification/mobile_otp_verification_screen.dart';
 import 'package:makeup/src/feature/auth/ui/reset_password/reset_password_screen.dart';
 import 'package:makeup/src/feature/auth/ui/signup/signup_screen.dart';
+import 'package:makeup/src/feature/categories/dash_board.dart';
 
 class AppRouter {
   static const String splash = '/splash';
   static const String login = '/login';
   static const String signUp = '/signUp';
   static const String forget = '/forget';
+  static const String dashboard = '/dashboard';
   static const String mobileOtpVerification = '/mobileOtpVerification';
+  static const String emailOtpVerification = '/emailOtpVerification';
   static const String emailVerification = '/emailVerification';
   static const String eventDetails = '/eventDetails';
 
@@ -29,6 +33,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => ResetPasswordScreen());
       case emailVerification:
         return MaterialPageRoute(builder: (_) => EmailVerificationScreen());
+      case emailOtpVerification:
+        return MaterialPageRoute(builder: (_) => EmailOtpVerificationScreen());
+      case dashboard:
+        return MaterialPageRoute(builder: (_) => DashBoard());
       default:
         return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(

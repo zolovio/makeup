@@ -39,7 +39,12 @@ class LoginVm extends ChangeNotifier {
     // navigatorKey.currentState!.pushNamed(AppRouter.emailVerification);
   }
 
-  void onSignInTap(String email, String password, BuildContext context) {}
+  void onSignInTap(String email, String password, BuildContext context) async {
+    WaitingScreen.show(context);
+    await Future.delayed(const Duration(milliseconds: 800));
+    WaitingScreen.hide(context);
+    navigatorKey.currentState!.pushNamed(AppRouter.dashboard);
+  }
 
   Future<void> onFogotPasswordTap(BuildContext context) async {
     WaitingScreen.show(context);
