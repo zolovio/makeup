@@ -6,16 +6,16 @@ import 'package:makeup/src/core/ui/common_widget/category_card.dart';
 import 'package:makeup/src/core/ui/common_widget/review_slider.dart';
 import 'package:makeup/src/core/ui/theme.dart';
 import 'package:makeup/src/feature/categories/base_screen.dart';
-import 'package:makeup/src/feature/categories/categories_vm.dart';
+import 'package:makeup/src/feature/categories/category_home/category_home_vm.dart';
 
-class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({Key? key}) : super(key: key);
+class CategoryHomeScreen extends StatelessWidget {
+  const CategoryHomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Consumer(builder: (context, ref, _) {
-      final _vm = ref.watch(categoriesVmProvider);
+      final _vm = ref.watch(categoryHomeVmProvider);
       return BaseScreen(
         searchController: _vm.searchController,
         child: SizedBox(
@@ -46,7 +46,9 @@ class CategoriesScreen extends StatelessWidget {
                     CategoryCard(
                       imageUrl: _vm.categoryList[i].imageUrl,
                       label: _vm.categoryList[i].label,
-                      onCardTap: () {},
+                      onCardTap: () {
+                        _vm.onCardTap(context, _vm.categoryList[i].label);
+                      },
                     ),
                 ],
               ),
