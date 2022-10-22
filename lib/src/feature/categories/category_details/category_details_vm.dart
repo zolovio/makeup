@@ -3,12 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:makeup/app.dart';
 import 'package:makeup/src/core/services/app_router.dart';
 
-final categoriesVmProvider =
-    ChangeNotifierProvider.autoDispose<CategoriesVm>((ref) {
-  return CategoriesVm();
+final categoryDetailsVmProvider =
+    ChangeNotifierProvider.autoDispose<CategoryDetailsVm>((ref) {
+  return CategoryDetailsVm();
 });
 
-class CategoriesVm extends ChangeNotifier {
+class CategoryDetailsVm extends ChangeNotifier {
   bool isSearchExpand = false;
   List<CategoryItem> categoryList = [
     CategoryItem(label: 'Hair', imageUrl: 'assets/images/hair.jpg'),
@@ -35,6 +35,18 @@ class CategoriesVm extends ChangeNotifier {
   void onSearchTap() {
     isSearchExpand = !isSearchExpand;
     notifyListeners();
+  }
+
+  void onCategoryTap() {
+    navigatorKey.currentState!.pop();
+  }
+
+  void onCartTap() {
+    print('CartTapped');
+  }
+
+  void onLikeTap() {
+    print('onLikeTapped');
   }
 }
 
