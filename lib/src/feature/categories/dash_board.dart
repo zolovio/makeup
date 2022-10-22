@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:makeup/src/feature/categories/categories_screen.dart';
+import 'package:makeup/src/feature/categories/category_home/category_home_screen.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class _DashBoardState extends State<DashBoard> {
   int selectedIndex = 0;
 
   List<Widget> _children() => [
-        CategoriesScreen(),
+        CategoryHomeScreen(),
         Container(),
         Container(),
         Container(),
