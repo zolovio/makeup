@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makeup/src/feature/categories/category_home/category_home_screen.dart';
+import 'package:makeup/src/feature/categories/rates/rates_screen.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class _DashBoardState extends State<DashBoard> {
 
   List<Widget> _children() => [
         CategoryHomeScreen(),
-        Container(),
+        RatesScreen(),
         Container(),
         Container(),
       ];
