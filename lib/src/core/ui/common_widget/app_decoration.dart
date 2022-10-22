@@ -13,10 +13,13 @@ class AppDecoration {
           {Color? color,
           double? fontSize,
           FontWeight? fontWeight,
-          FontStyle? fontStyle}) =>
+          FontStyle? fontStyle,
+          double? letterSpacing}) =>
       TextStyle(
         color: color ?? AppColors.hintColor,
         fontSize: fontSize ?? 18.sp,
+        fontFamily: 'Sansita',
+        letterSpacing: letterSpacing ?? 0.0,
         fontWeight: fontWeight ?? FontWeight.normal,
         fontStyle: fontStyle ?? FontStyle.normal,
       );

@@ -6,6 +6,7 @@ import 'package:makeup/src/feature/auth/ui/login/login_screen.dart';
 import 'package:makeup/src/feature/auth/ui/mobile_otp_verification/mobile_otp_verification_screen.dart';
 import 'package:makeup/src/feature/auth/ui/reset_password/reset_password_screen.dart';
 import 'package:makeup/src/feature/auth/ui/signup/signup_screen.dart';
+import 'package:makeup/src/feature/categories/category_details/category_details_screen.dart';
 import 'package:makeup/src/feature/categories/dash_board.dart';
 
 class AppRouter {
@@ -18,6 +19,7 @@ class AppRouter {
   static const String emailOtpVerification = '/emailOtpVerification';
   static const String emailVerification = '/emailVerification';
   static const String eventDetails = '/eventDetails';
+  static const String categoryDetails = '/categoryDetails';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -37,6 +39,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => EmailOtpVerificationScreen());
       case dashboard:
         return MaterialPageRoute(builder: (_) => DashBoard());
+      case categoryDetails:
+        return MaterialPageRoute(builder: (_) => CategoryDetailsScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(
