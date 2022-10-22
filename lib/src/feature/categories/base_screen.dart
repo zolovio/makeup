@@ -21,83 +21,105 @@ class _BaseScreenState extends State<BaseScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: AppColors.black,
-      appBar: AppBar(
-        backgroundColor: AppColors.black,
-        leading: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Image.asset('assets/side_bar_yellow.png'),
-        ),
-        title: AnimatedContainer(
-          height: size.height * 0.05.h,
-          width: isSearchExpand ? size.width * 0.8.w : 80.w,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-              border: Border.all(color: AppColors.yellow, width: 1.5)),
-          duration: const Duration(milliseconds: 800),
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    isSearchExpand = !isSearchExpand;
-                  });
-                },
-                child: Icon(
-                  Icons.search_rounded,
-                  color: AppColors.yellow,
-                  size: 45.sp,
-                ),
-              ),
-              isSearchExpand
-                  ? Flexible(
-                      child: TextField(
-                      style: AppDecoration.textStyle(
-                        color: AppColors.white,
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.normal,
-                      ),
-                      decoration:
-                          const InputDecoration(border: InputBorder.none),
-                      controller: widget.searchController,
-                    ))
-                  : Container()
-            ],
-          ),
-        ),
-        actions: [
-          !isSearchExpand
-              ? FadeInUp(
-                  duration: Duration(milliseconds: 800),
-                  delay: Duration(milliseconds: 100),
-                  child: Row(
-                    children: [
-                      !isSearchExpand
-                          ? Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: Image.asset('assets/facebook_yellow.png'),
-                            )
-                          : Container(),
-                      !isSearchExpand
-                          ? Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: Image.asset('assets/insta_yellow.png'),
-                            )
-                          : Container(),
-                      !isSearchExpand
-                          ? Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: Image.asset('assets/twitter_yellow.png'),
-                            )
-                          : Container(),
-                    ],
+    return Container(
+      color: AppColors.black,
+      child: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(12.sp),
+              child: Image.asset('assets/logo.png', width: size.width * 0.6.w),
+            ),
+            Expanded(
+              child: Scaffold(
+                backgroundColor: AppColors.black,
+                appBar: AppBar(
+                  backgroundColor: AppColors.black,
+                  leading: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Image.asset('assets/side_bar_yellow.png'),
                   ),
-                )
-              : Container()
-        ],
+                  title: AnimatedContainer(
+                    height: size.height * 0.05.h,
+                    width: isSearchExpand ? size.width * 0.9.w : 100.w,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.r),
+                        border:
+                            Border.all(color: AppColors.yellow, width: 1.5)),
+                    duration: const Duration(milliseconds: 800),
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isSearchExpand = !isSearchExpand;
+                            });
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(2.sp),
+                            child: Icon(
+                              Icons.search_rounded,
+                              color: AppColors.yellow,
+                              size: 45.sp,
+                            ),
+                          ),
+                        ),
+                        isSearchExpand
+                            ? Flexible(
+                                child: TextField(
+                                style: AppDecoration.textStyle(
+                                  color: AppColors.white,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                                decoration: const InputDecoration(
+                                    border: InputBorder.none),
+                                controller: widget.searchController,
+                              ))
+                            : Container()
+                      ],
+                    ),
+                  ),
+                  actions: [
+                    !isSearchExpand
+                        ? FadeInUp(
+                            duration: const Duration(milliseconds: 800),
+                            delay: const Duration(milliseconds: 100),
+                            child: Row(
+                              children: [
+                                !isSearchExpand
+                                    ? Padding(
+                                        padding: const EdgeInsets.all(12.0),
+                                        child: Image.asset(
+                                            'assets/facebook_yellow.png'),
+                                      )
+                                    : Container(),
+                                !isSearchExpand
+                                    ? Padding(
+                                        padding: const EdgeInsets.all(12.0),
+                                        child: Image.asset(
+                                            'assets/insta_yellow.png'),
+                                      )
+                                    : Container(),
+                                !isSearchExpand
+                                    ? Padding(
+                                        padding: const EdgeInsets.all(12.0),
+                                        child: Image.asset(
+                                            'assets/twitter_yellow.png'),
+                                      )
+                                    : Container(),
+                              ],
+                            ),
+                          )
+                        : Container()
+                  ],
+                ),
+                body: widget.child,
+              ),
+            ),
+          ],
+        ),
       ),
-      body: widget.child,
     );
   }
 }
