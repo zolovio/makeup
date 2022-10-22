@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
@@ -66,28 +67,34 @@ class _BaseScreenState extends State<BaseScreen> {
           ),
         ),
         actions: [
-          Row(
-            children: [
-              !isSearchExpand
-                  ? Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Image.asset('assets/facebook_yellow.png'),
-                    )
-                  : Container(),
-              !isSearchExpand
-                  ? Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Image.asset('assets/insta_yellow.png'),
-                    )
-                  : Container(),
-              !isSearchExpand
-                  ? Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Image.asset('assets/twitter_yellow.png'),
-                    )
-                  : Container(),
-            ],
-          )
+          !isSearchExpand
+              ? FadeInUp(
+                  duration: Duration(milliseconds: 800),
+                  delay: Duration(milliseconds: 100),
+                  child: Row(
+                    children: [
+                      !isSearchExpand
+                          ? Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Image.asset('assets/facebook_yellow.png'),
+                            )
+                          : Container(),
+                      !isSearchExpand
+                          ? Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Image.asset('assets/insta_yellow.png'),
+                            )
+                          : Container(),
+                      !isSearchExpand
+                          ? Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Image.asset('assets/twitter_yellow.png'),
+                            )
+                          : Container(),
+                    ],
+                  ),
+                )
+              : Container()
         ],
       ),
       body: widget.child,
