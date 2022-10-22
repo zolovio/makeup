@@ -65,14 +65,15 @@ class CategoryDetailsScreen extends StatelessWidget {
                           title: 'Smoothening',
                           descriptions:
                               'Hair smoothening is a chemical process,that involves saturating the hair with a formaldehyde solution, which is then dried out and locked in a straight position usin a flat iron.',
-                          price: '1500',
-                          noOfLikes: '1',
+                          timeLabel: 'Streax/Schwarzkopf',
+                          noOfLikes: '3-4 Hours',
                           onCartTap: () {
                             _vm.onCartTap();
                           },
                           onLikeTap: () {
                             _vm.onLikeTap();
                           },
+                          price: '200',
                         ),
                       ),
                   ],
