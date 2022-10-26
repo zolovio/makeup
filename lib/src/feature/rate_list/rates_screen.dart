@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
 import 'package:makeup/src/core/ui/common_widget/category_animated_card.dart';
 import 'package:makeup/src/core/ui/theme.dart';
-import 'package:makeup/src/feature/categories/base_screen.dart';
-import 'package:makeup/src/feature/categories/category_details/category_details_vm.dart';
+import 'package:makeup/src/feature/dashboard/base_screen.dart';
+import 'package:makeup/src/feature/rate_list/rates_vm.dart';
 
 class RatesScreen extends StatelessWidget {
   const RatesScreen({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class RatesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Consumer(builder: (context, ref, _) {
-      final _vm = ref.watch(categoryDetailsVmProvider);
+      final _vm = ref.watch(ratesVmProvider);
       return BaseScreen(
         searchController: _vm.searchController,
         child: SizedBox(

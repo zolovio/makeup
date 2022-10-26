@@ -6,8 +6,8 @@ import 'package:makeup/src/feature/auth/ui/login/login_screen.dart';
 import 'package:makeup/src/feature/auth/ui/mobile_otp_verification/mobile_otp_verification_screen.dart';
 import 'package:makeup/src/feature/auth/ui/reset_password/reset_password_screen.dart';
 import 'package:makeup/src/feature/auth/ui/signup/signup_screen.dart';
-import 'package:makeup/src/feature/categories/category_details/category_details_screen.dart';
-import 'package:makeup/src/feature/categories/dash_board.dart';
+import 'package:makeup/src/feature/dashboard/dash_board.dart';
+import 'package:makeup/src/feature/home/category_details/category_details_screen.dart';
 
 class AppRouter {
   static const String splash = '/splash';

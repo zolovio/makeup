@@ -5,8 +5,8 @@ import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
 import 'package:makeup/src/core/ui/common_widget/category_animated_card.dart';
 import 'package:makeup/src/core/ui/common_widget/category_detail_card.dart';
 import 'package:makeup/src/core/ui/theme.dart';
-import 'package:makeup/src/feature/categories/base_screen.dart';
-import 'package:makeup/src/feature/categories/category_details/category_details_vm.dart';
+import 'package:makeup/src/feature/dashboard/base_screen.dart';
+import 'package:makeup/src/feature/home/category_details/category_details_vm.dart';
 
 class CategoryDetailsScreen extends StatelessWidget {
   const CategoryDetailsScreen({Key? key}) : super(key: key);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:makeup/src/feature/categories/category_home/category_home_screen.dart';
-import 'package:makeup/src/feature/categories/rates/rates_screen.dart';
+import 'package:makeup/src/feature/booknow/book_now_screen.dart';
+import 'package:makeup/src/feature/home/category_home_screen.dart';
+import 'package:makeup/src/feature/rate_list/rates_screen.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _DashBoardState extends State<DashBoard> {
   List<Widget> _children() => [
         CategoryHomeScreen(),
         RatesScreen(),
-        Container(),
+        BookNowScreen(),
         Container(),
       ];
 
@@ -87,7 +88,7 @@ class _DashBoardState extends State<DashBoard> {
       bottomNavigationBar: Container(
         height: 70.0,
         color: Colors.amber,
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
