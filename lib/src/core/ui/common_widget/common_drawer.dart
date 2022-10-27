@@ -124,7 +124,9 @@ class CommonDrawer extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              navigatorKey.currentState?.pushNamed(AppRouter.myBooking);
+            },
           ),
           ListTile(
             leading: Image.asset(
