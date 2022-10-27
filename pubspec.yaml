@@ -71,7 +71,7 @@ dependencies:
   pinput: ^2.2.16
   carousel_slider: ^4.1.1
   animate_do: ^2.1.0
-  expansion_widget: ^0.0.3
+
 
 dev_dependencies:
   flutter_test:

@@ -4,7 +4,7 @@ import 'package:makeup/src/core/ui/theme.dart';
 
 class AppDecoration {
   static InputBorder inputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8.0),
+    borderRadius: BorderRadius.circular(4.0),
     borderSide:
         const BorderSide(width: 2, color: AppColors.textFieldBorderColor),
   );

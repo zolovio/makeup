@@ -8,10 +8,12 @@ import 'package:makeup/src/feature/auth/ui/reset_password/reset_password_screen.
 import 'package:makeup/src/feature/auth/ui/signup/signup_screen.dart';
 import 'package:makeup/src/feature/dashboard/dash_board.dart';
 import 'package:makeup/src/feature/home/category_details/category_details_screen.dart';
+import 'package:makeup/src/feature/profile/profile_screen.dart';
 
 class AppRouter {
   static const String splash = '/splash';
   static const String login = '/login';
+  static const String profile = '/profile';
   static const String signUp = '/signUp';
   static const String forget = '/forget';
   static const String dashboard = '/dashboard';
@@ -41,6 +43,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => DashBoard());
       case categoryDetails:
         return MaterialPageRoute(builder: (_) => CategoryDetailsScreen());
+      case profile:
+        return MaterialPageRoute(builder: (_) => ProfileScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(

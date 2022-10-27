@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
+import 'package:makeup/src/core/ui/common_widget/common_drawer.dart';
 import 'package:makeup/src/core/ui/theme.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -33,11 +34,23 @@ class _BaseScreenState extends State<BaseScreen> {
             Expanded(
               child: Scaffold(
                 backgroundColor: AppColors.black,
+                drawer: CommonDrawer(),
                 appBar: AppBar(
                   backgroundColor: AppColors.black,
-                  leading: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Image.asset('assets/side_bar_yellow.png'),
+                  leading: Builder(
+                    builder: (BuildContext context) {
+                      return IconButton(
+                        icon: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+                          child: Image.asset('assets/side_bar_yellow.png'),
+                        ),
+                        onPressed: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                        tooltip: MaterialLocalizations.of(context)
+                            .openAppDrawerTooltip,
+                      );
+                    },
                   ),
                   title: AnimatedContainer(
                     height: size.height * 0.05.h,
