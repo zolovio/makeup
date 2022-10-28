@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:makeup/src/feature/booknow/book_now_screen.dart';
 import 'package:makeup/src/feature/home/category_home_screen.dart';
+import 'package:makeup/src/feature/profile/profile_screen.dart';
 import 'package:makeup/src/feature/rate_list/rates_screen.dart';
 
 class DashBoard extends StatefulWidget {
@@ -17,7 +18,7 @@ class _DashBoardState extends State<DashBoard> {
         CategoryHomeScreen(),
         RatesScreen(),
         BookNowScreen(),
-        Container(),
+        ProfileScreen(isEditable: false),
       ];
 
   List<BottomNavModel> navBarsItems() {

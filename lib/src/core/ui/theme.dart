@@ -21,7 +21,8 @@ class AppColors {
   static const darkBackground = Color.fromRGBO(2, 15, 75, 100);
   static const lightBackground = Color.fromRGBO(245, 245, 245, 1);
   static const yellow = Color(0xffFFD700);
-  static const textFieldColor = Color(0xff3E3C3C);
+  static const textFieldColor =
+      Color.fromRGBO(36, 36, 36, 1); //Color(0xff3E3C3C);
   static const textFieldBorderColor = Color(0xffD9D9D9);
   static const hintColor = Color(0xff7D7D7D);
   static const hint2Color = Color(0xffCBCBCB);

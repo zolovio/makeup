@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:makeup/src/core/ui/common_widget/add_more_card.dart';
 import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
 import 'package:makeup/src/core/ui/common_widget/bill_summary_card.dart';
 import 'package:makeup/src/core/ui/common_widget/book_now_button.dart';
@@ -107,50 +108,9 @@ class BookNowScreen extends StatelessWidget {
                 ],
               )),
               SizedBox(height: 20.h),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.r),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.25),
-                        offset: Offset(0, 1),
-                        blurRadius: 2)
-                  ],
-                  color: const Color.fromRGBO(255, 255, 255, 1),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(12.sp),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Your Details',
-                            style: AppDecoration.textStyle(
-                              color: AppColors.black,
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            'Sanjay,  1234567890',
-                            style: AppDecoration.textStyle(
-                              color: AppColors.hintColor,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: AppColors.hintColor,
-                      )
-                    ],
-                  ),
-                ),
+              const AddMoreCard(
+                label: 'Your Details',
+                nameNumber: 'Sanjay,  1234567890',
               ),
               SizedBox(height: 20.h),
               BookNowButton(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:makeup/src/core/ui/common_widget/add_more_card.dart';
 import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
 import 'package:makeup/src/core/ui/common_widget/rate_card.dart';
 import 'package:makeup/src/core/ui/theme.dart';
@@ -28,16 +29,9 @@ class OrderCard extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4.0),
-                    child: Container(
-                      width: 10.h,
-                      height: 10.h,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColors.yellow,
-                      ),
-                    ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 4.0),
+                    child: DotWidget(),
                   ),
                   SizedBox(width: 15.w),
                   Expanded(
@@ -135,9 +129,33 @@ class OrderCard extends StatelessWidget {
                       ),
                     ]),
               ),
+              SizedBox(height: 15.h),
+              const AddMoreCard(
+                label: 'Add more items',
+              ),
+              SizedBox(height: 15.h),
+              const AddMoreCard(
+                label: 'Add Instructions',
+              ),
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DotWidget extends StatelessWidget {
+  const DotWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 10.h,
+      height: 10.h,
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: AppColors.yellow,
       ),
     );
   }

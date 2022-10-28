@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makeup/src/core/ui/common_widget/app_decoration.dart';
+import 'package:makeup/src/core/ui/common_widget/book_now_button.dart';
 import 'package:makeup/src/core/ui/common_widget/my_booking_card.dart';
 import 'package:makeup/src/core/ui/theme.dart';
 import 'package:makeup/src/feature/my_booking/my_booking_vm.dart';
@@ -79,11 +80,42 @@ class MyBookingScreen extends StatelessWidget {
                 taxServiceCharge: '100',
                 amountPaid: '2050',
               ),
+              SizedBox(height: 15.h),
+              NoBookingCard(),
               SizedBox(height: 50.h),
             ],
           ),
         ),
       );
     });
+  }
+}
+
+class NoBookingCard extends StatelessWidget {
+  const NoBookingCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        Text(
+          'You have no upcoming bookings',
+          style: AppDecoration.textStyle(
+            color: AppColors.white,
+            fontSize: 20.sp,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        SizedBox(height: size.height * 0.1),
+        Image.asset(
+          'assets/nobooking.png',
+          height: 150.0,
+          width: 150.0,
+        ),
+        SizedBox(height: size.height * 0.05),
+        BookNowButton(onButtonTap: () {}),
+      ],
+    );
   }
 }

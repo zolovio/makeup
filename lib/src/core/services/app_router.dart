@@ -6,6 +6,7 @@ import 'package:makeup/src/feature/auth/ui/login/login_screen.dart';
 import 'package:makeup/src/feature/auth/ui/mobile_otp_verification/mobile_otp_verification_screen.dart';
 import 'package:makeup/src/feature/auth/ui/reset_password/reset_password_screen.dart';
 import 'package:makeup/src/feature/auth/ui/signup/signup_screen.dart';
+import 'package:makeup/src/feature/contact_us/contact_us_screen.dart';
 import 'package:makeup/src/feature/dashboard/dash_board.dart';
 import 'package:makeup/src/feature/home/category_details/category_details_screen.dart';
 import 'package:makeup/src/feature/my_booking/my_booking_screen.dart';
@@ -16,6 +17,7 @@ class AppRouter {
   static const String login = '/login';
   static const String profile = '/profile';
   static const String myBooking = '/myBooking';
+  static const String contactUs = '/contactUs';
   static const String signUp = '/signUp';
   static const String forget = '/forget';
   static const String dashboard = '/dashboard';
@@ -49,6 +51,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => ProfileScreen());
       case myBooking:
         return MaterialPageRoute(builder: (_) => MyBookingScreen());
+      case contactUs:
+        return MaterialPageRoute(builder: (_) => ContactUsScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(
