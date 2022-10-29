@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makeup/src/core/ui/common_widget/add_more_card.dart';
@@ -66,42 +68,64 @@ class BookNowScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.calendar_month_outlined,
-                            color: AppColors.hintColor,
-                            size: 25.sp,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            '21/10/2022',
-                            style: AppDecoration.textStyle(
+                      GestureDetector(
+                        onTap: () {
+                          DatePicker.showDatePicker(
+                            context,
+                            showTitleActions: true,
+                            minTime: DateTime(1964, 1, 1),
+                            maxTime: DateTime(2030, 12, 31),
+                            onConfirm: (newDateTime) {
+                              _vm.onDateChange(newDateTime);
+                            },
+                            currentTime: _vm.dateTimeSelected,
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.calendar_month_outlined,
                               color: AppColors.hintColor,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.normal,
+                              size: 25.sp,
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 5),
+                            Text(
+                              _vm.selectedDate.toString(),
+                              style: AppDecoration.textStyle(
+                                color: AppColors.hintColor,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(width: 10.w),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.watch_later_outlined,
-                            color: AppColors.hintColor,
-                            size: 25.sp,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            '10:00 AM',
-                            style: AppDecoration.textStyle(
+                      GestureDetector(
+                        onTap: () {
+                          DatePicker.showTime12hPicker(context,
+                              showTitleActions: true, onConfirm: (date) {
+                            _vm.onTimeConfirm(date);
+                          }, locale: LocaleType.en);
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.watch_later_outlined,
                               color: AppColors.hintColor,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.normal,
+                              size: 25.sp,
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 5),
+                            Text(
+                              _vm.selectedTime.toString(),
+                              style: AppDecoration.textStyle(
+                                color: AppColors.hintColor,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

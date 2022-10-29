@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:jiffy/jiffy.dart';
 import 'package:makeup/app.dart';
 import 'package:makeup/src/core/services/app_router.dart';
 
@@ -26,6 +28,20 @@ class BookNowVm extends ChangeNotifier {
 
   final searchController = TextEditingController();
 
+  DateTime dateTimeSelected = DateTime.now();
+  DateTime timeSelected = DateTime.now();
+  String? selectedDate;
+  String? selectedTime;
+
+  BookNowVm() {
+    load();
+  }
+
+  load() {
+    selectedDate = Jiffy(dateTimeSelected).yMMMd;
+    selectedTime = Jiffy(timeSelected).jm;
+  }
+
   void onContinueTap() {
     navigatorKey.currentState!
         .pushNamedAndRemoveUntil(AppRouter.login, (route) => false);
@@ -46,6 +62,34 @@ class BookNowVm extends ChangeNotifier {
 
   void onLikeTap() {
     print('onLikeTapped');
+  }
+
+  void onDateChange(DateTime newDateTime) {
+    DateTime dd = newDateTime;
+    selectedDate = Jiffy(DateTime(
+      dd.year,
+      dd.month,
+      dd.day,
+      dd.hour,
+      dd.minute,
+      dd.second,
+    )).yMMMd;
+    dateTimeSelected = dd;
+    notifyListeners();
+  }
+
+  void onTimeConfirm(DateTime date) {
+    DateTime dd = date;
+    selectedTime = Jiffy(DateTime(
+      dd.year,
+      dd.month,
+      dd.day,
+      dd.hour,
+      dd.minute,
+      dd.second,
+    )).jm;
+    timeSelected = dd;
+    notifyListeners();
   }
 }
 
