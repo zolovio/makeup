@@ -43,7 +43,8 @@ class LoginVm extends ChangeNotifier {
     WaitingScreen.show(context);
     await Future.delayed(const Duration(milliseconds: 800));
     WaitingScreen.hide(context);
-    navigatorKey.currentState!.pushNamed(AppRouter.dashboard);
+    // navigatorKey.currentState!.pushNamed(AppRouter.dashboard);
+    navigatorKey.currentState!.pushNamed(AppRouter.adminAfterLogin);
   }
 
   Future<void> onFogotPasswordTap(BuildContext context) async {

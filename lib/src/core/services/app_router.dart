@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makeup/splash_screen.dart';
+import 'package:makeup/src/admin/features/manage_bookings/manage_bookings.dart';
 import 'package:makeup/src/feature/auth/ui/email_otp_verification/email_otp_verification_screen.dart';
 import 'package:makeup/src/feature/auth/ui/email_verification/email_verification_screen.dart';
 import 'package:makeup/src/feature/auth/ui/login/login_screen.dart';
@@ -11,6 +12,12 @@ import 'package:makeup/src/feature/dashboard/dash_board.dart';
 import 'package:makeup/src/feature/home/category_details/category_details_screen.dart';
 import 'package:makeup/src/feature/my_booking/my_booking_screen.dart';
 import 'package:makeup/src/feature/profile/profile_screen.dart';
+
+import '../../admin/features/admin_after_login/admin_after_login_screen.dart';
+import '../../admin/features/admin_dashboard/admin_dashboard.dart';
+import '../../admin/features/home/admin_home_screen.dart';
+import '../../admin/features/manage_categories/manage_category_details/manage_category_details_screen.dart';
+import '../../admin/features/manage_users/manage_users.dart';
 
 class AppRouter {
   static const String splash = '/splash';
@@ -26,6 +33,13 @@ class AppRouter {
   static const String emailVerification = '/emailVerification';
   static const String eventDetails = '/eventDetails';
   static const String categoryDetails = '/categoryDetails';
+  // admin screens
+  static const String adminAfterLogin = '/adminAfterLogin';
+  static const String adminHomeScreen = '/adminHomeScreen';
+  static const String adminDashboard = '/adminDashboard';
+  static const String manageBookingScreen = '/manageBookingScreen';
+  static const String manageUsersScreen = '/manageUsersScreen';
+  static const String manageCategoryDetails = '/manageCategoryDetails';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -53,6 +67,19 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => MyBookingScreen());
       case contactUs:
         return MaterialPageRoute(builder: (_) => ContactUsScreen());
+      // admin Screen
+      case adminAfterLogin:
+        return MaterialPageRoute(builder: (_) => AdminAfterLoginScreen());
+      case adminDashboard:
+        return MaterialPageRoute(builder: (_) => AdminDashboard());
+      case adminHomeScreen:
+        return MaterialPageRoute(builder: (_) => AdminHomeScreen());
+      case manageBookingScreen:
+        return MaterialPageRoute(builder: (_) => ManageBookingScreen());
+      case manageUsersScreen:
+        return MaterialPageRoute(builder: (_) => ManageUsersScreen());
+      case manageCategoryDetails:
+        return MaterialPageRoute(builder: (_) => ManageCategoryDetailsScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(
