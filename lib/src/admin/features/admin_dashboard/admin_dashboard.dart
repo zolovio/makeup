@@ -42,7 +42,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                                 ? Theme.of(context).primaryColor
                                 : Colors.black,
                             fontWeight: FontWeight.w400,
-                            fontSize: 13.0),
+                            fontSize: 10.0),
                       ),
                     ],
                   ),

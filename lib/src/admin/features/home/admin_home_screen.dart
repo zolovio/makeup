@@ -57,7 +57,7 @@ class AdminHomeScreen extends StatelessWidget {
                           "Operations",
                           style: AppDecoration.textStyle(
                             color: AppColors.white,
-                            fontSize: 35.sp,
+                            fontSize: 30.sp,
                             fontWeight: FontWeight.w600,
                           ),
                         )),

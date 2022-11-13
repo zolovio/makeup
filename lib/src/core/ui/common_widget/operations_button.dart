@@ -21,7 +21,7 @@ class OperationButton extends StatelessWidget {
         onTap: () => onButtonTap(),
         child: Container(
             height: size.height * 0.05,
-            width: size.width * 0.50,
+            width: size.width * 0.55,
             padding: EdgeInsets.only(left: 5.h),
             alignment: Alignment.centerLeft,
             decoration: const BoxDecoration(
@@ -39,7 +39,7 @@ class OperationButton extends StatelessWidget {
               btnLabel,
               style: AppDecoration.textStyle(
                 color: AppColors.white,
-                fontSize: 30.sp,
+                fontSize: 25.sp,
                 fontWeight: FontWeight.w500,
               ),
             )),
