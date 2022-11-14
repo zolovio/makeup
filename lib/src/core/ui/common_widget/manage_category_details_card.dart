@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makeup/src/core/ui/theme.dart';
-
-import '../../../admin/features/manage_categories/manage_category_details/confirm_edit_dialog.dart';
 import 'app_decoration.dart';
 
 class EditCategoryCard extends StatefulWidget {

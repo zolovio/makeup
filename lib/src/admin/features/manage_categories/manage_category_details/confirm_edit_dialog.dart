@@ -52,7 +52,7 @@ class _ConfirmEditDialogState extends State<ConfirmEditDialog> {
                     "Do you want to edit the price of length products?",
                     textAlign: TextAlign.center,
                     style: AppDecoration.textStyle(
-                        fontSize: 20.h,
+                        fontSize: 18.h,
                         color: AppColors.white,
                         fontWeight: FontWeight.w500),
                   ),

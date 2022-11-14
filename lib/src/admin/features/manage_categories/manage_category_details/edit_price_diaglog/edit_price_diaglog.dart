@@ -66,7 +66,7 @@ class _EditPriceDialogScreenState extends State<EditPriceDialogScreen> {
                 child: Text(
                   "Select length and price",
                   style: AppDecoration.textStyle(
-                      fontSize: 20.h,
+                      fontSize: 19.h,
                       color: AppColors.yellow,
                       fontWeight: FontWeight.w600),
                 ),
@@ -84,7 +84,7 @@ class _EditPriceDialogScreenState extends State<EditPriceDialogScreen> {
                         "Length",
                         textAlign: TextAlign.center,
                         style: AppDecoration.textStyle(
-                            fontSize: 18.h,
+                            fontSize: 17.h,
                             color: AppColors.yellow,
                             fontWeight: FontWeight.w600),
                       ),
@@ -97,7 +97,7 @@ class _EditPriceDialogScreenState extends State<EditPriceDialogScreen> {
                           "Price",
                           textAlign: TextAlign.center,
                           style: AppDecoration.textStyle(
-                              fontSize: 18.h,
+                              fontSize: 17.h,
                               color: AppColors.yellow,
                               fontWeight: FontWeight.w600),
                         ))
@@ -145,7 +145,7 @@ class _EditPriceDialogScreenState extends State<EditPriceDialogScreen> {
                 child: Text(
                   "Select length and price",
                   style: AppDecoration.textStyle(
-                      fontSize: 20.h,
+                      fontSize: 18.h,
                       color: AppColors.yellow,
                       fontWeight: FontWeight.w600),
                 ),
@@ -163,7 +163,7 @@ class _EditPriceDialogScreenState extends State<EditPriceDialogScreen> {
                         "Length",
                         textAlign: TextAlign.center,
                         style: AppDecoration.textStyle(
-                            fontSize: 18.h,
+                            fontSize: 17.h,
                             color: AppColors.yellow,
                             fontWeight: FontWeight.w600),
                       ),
@@ -176,7 +176,7 @@ class _EditPriceDialogScreenState extends State<EditPriceDialogScreen> {
                           "Price",
                           textAlign: TextAlign.center,
                           style: AppDecoration.textStyle(
-                              fontSize: 18.h,
+                              fontSize: 17.h,
                               color: AppColors.yellow,
                               fontWeight: FontWeight.w600),
                         ))

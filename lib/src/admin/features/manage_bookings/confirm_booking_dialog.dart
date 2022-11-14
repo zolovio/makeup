@@ -38,7 +38,7 @@ class _ConfirmBookingDialogState extends State<ConfirmBookingDialog> {
                   child: Text(
                     "Do you want to confirm?",
                     style: AppDecoration.textStyle(
-                        fontSize: 20.h,
+                        fontSize: 18.h,
                         color: AppColors.white,
                         fontWeight: FontWeight.w500),
                   ),

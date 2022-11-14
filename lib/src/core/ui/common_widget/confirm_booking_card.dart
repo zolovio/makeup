@@ -45,56 +45,58 @@ class _ConfirmCardState extends State<ConfirmCard> {
   bool isOpen = false;
 
   Widget customTile(String leadingTxt, String titleTxt, trailingTxt) => Padding(
-        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+        padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 5.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              height: 26.h,
+              height: 25.h,
               width: 80.h,
               child: Text(
                 leadingTxt,
                 style: AppDecoration.textStyle(
                   color: AppColors.yellow,
-                  fontSize: 20.sp,
+                  fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            SizedBox(
-              height: 26.h,
-              child: (leadingTxt == "Product")
-                  ? RichText(
-                      text: TextSpan(
-                          text: "${widget.productName} (",
-                          style: AppDecoration.textStyle(
-                            color: AppColors.white,
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: widget.productSize,
-                              style: AppDecoration.textStyle(
-                                color: AppColors.yellow,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w600,
-                              ),
+            if (trailingTxt == null)
+              SizedBox(
+                height: 26.h,
+                width: 220.w,
+                child: (leadingTxt == "Product")
+                    ? RichText(
+                        text: TextSpan(
+                            text: "${widget.productName} (",
+                            style: AppDecoration.textStyle(
+                              color: AppColors.white,
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.w600,
                             ),
-                            const TextSpan(text: ")"),
-                          ]),
-                    )
-                  : Text(
-                      (leadingTxt == "Amount" && trailingTxt == null)
-                          ? "₹$titleTxt"
-                          : titleTxt,
-                      style: AppDecoration.textStyle(
-                        color: AppColors.white,
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w600,
+                            children: [
+                              TextSpan(
+                                text: widget.productSize,
+                                style: AppDecoration.textStyle(
+                                  color: AppColors.yellow,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const TextSpan(text: ")"),
+                            ]),
+                      )
+                    : Text(
+                        (leadingTxt == "Amount" && trailingTxt == null)
+                            ? "₹$titleTxt"
+                            : titleTxt,
+                        style: AppDecoration.textStyle(
+                          color: AppColors.white,
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-            ),
+              ),
             (trailingTxt == null)
                 ? const Center()
                 : Container(
@@ -127,7 +129,7 @@ class _ConfirmCardState extends State<ConfirmCard> {
         ),
         FadeInLeft(
           child: Container(
-            height: (isOpen) ? size.height * 0.2 : size.height * 0.3,
+            height: (isOpen) ? size.height * 0.2 : size.height * 0.305,
             width: size.width * 0.92,
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.hintColor),
@@ -220,7 +222,7 @@ class _ConfirmCardState extends State<ConfirmCard> {
         if (isOpen)
           FadeInLeft(
             child: Container(
-              height: size.height * 0.45,
+              height: size.height * 0.47,
               width: size.width * 0.92,
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.hintColor),
@@ -230,30 +232,27 @@ class _ConfirmCardState extends State<ConfirmCard> {
               child: Column(
                 children: [
                   if (isOpen)
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                isOpen = !isOpen;
-                              });
-                            },
-                            icon: Transform.rotate(
-                              angle: 4.7,
-                              child: Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                color: AppColors.hintColor,
-                                size: 35.sp,
-                              ),
-                            )),
-                      ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isOpen = !isOpen;
+                            });
+                          },
+                          icon: Transform.rotate(
+                            angle: 4.7,
+                            child: Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              color: AppColors.hintColor,
+                              size: 35.sp,
+                            ),
+                          )),
                     ),
                   customTile("Email", widget.email, null),
                   customTile("Address", widget.address, null),
                   SizedBox(
-                    height: 5.h,
+                    height: 3.h,
                   ),
                   customTile("Amount", '', widget.amount),
                   customTile(
@@ -261,7 +260,7 @@ class _ConfirmCardState extends State<ConfirmCard> {
                   customTile("Reward Points", '', widget.rewardPoints),
                   customTile("Convenience Fee", '', widget.convenienceFees),
                   SizedBox(
-                    height: 5.h,
+                    height: 3.h,
                   ),
                   customTile("Total Amount", '', widget.totalAmount),
                   if (isOpen)

@@ -72,7 +72,7 @@ class _AdminAppBarState extends State<AdminAppBar> {
                                 "List of Users",
                                 style: TextStyle(
                                     color: AppColors.yellow,
-                                    fontSize: 25.h,
+                                    fontSize: 23.h,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),

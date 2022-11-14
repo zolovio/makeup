@@ -30,12 +30,12 @@ class _BannerTilesState extends State<BannerTiles> {
               ? Container(
                   alignment: Alignment.center,
                   height: 90.h,
-                  width: 110.h,
+                  width: 100.h,
                   child: Text(
                     widget.title,
                     textAlign: TextAlign.center,
                     style: AppDecoration.textStyle(
-                        fontSize: 22.h,
+                        fontSize: 20.h,
                         color: AppColors.yellow,
                         fontWeight: FontWeight.w600),
                   ),
@@ -43,7 +43,7 @@ class _BannerTilesState extends State<BannerTiles> {
               : Text(
                   widget.title,
                   style: AppDecoration.textStyle(
-                      fontSize: 22.h,
+                      fontSize: 20.h,
                       color: AppColors.yellow,
                       fontWeight: FontWeight.w600),
                 ),
@@ -70,13 +70,13 @@ class _BannerTilesState extends State<BannerTiles> {
                       ? Icon(
                           Icons.percent,
                           color: AppColors.yellow,
-                          size: 18.h,
+                          size: 17.h,
                         )
                       : null,
                 ),
                 cursorColor: AppColors.yellow,
                 maxLines: (widget.isReward == true) ? 1 : 5,
-                style: TextStyle(color: AppColors.white, fontSize: 18.h),
+                style: TextStyle(color: AppColors.white, fontSize: 17.h),
                 controller: widget.controller,
               ),
             ),
@@ -116,7 +116,7 @@ class _PriceBannerTilesState extends State<PriceBannerTiles> {
               widget.title,
               textAlign: TextAlign.center,
               style: AppDecoration.textStyle(
-                  fontSize: 18.h,
+                  fontSize: 17.h,
                   color: AppColors.white,
                   fontWeight: FontWeight.w600),
             ),
@@ -138,7 +138,7 @@ class _PriceBannerTilesState extends State<PriceBannerTiles> {
             child: Row(
               children: [
                 const Icon(Icons.currency_rupee_rounded,
-                    color: AppColors.yellow, size: 18),
+                    color: AppColors.yellow, size: 17),
                 Expanded(
                   child: TextField(
                     decoration: const InputDecoration(
@@ -148,7 +148,7 @@ class _PriceBannerTilesState extends State<PriceBannerTiles> {
                     maxLines: 1,
                     textAlign: TextAlign.center,
                     style:
-                        const TextStyle(color: AppColors.white, fontSize: 18),
+                        const TextStyle(color: AppColors.white, fontSize: 17),
                     controller: widget.controller,
                   ),
                 ),
