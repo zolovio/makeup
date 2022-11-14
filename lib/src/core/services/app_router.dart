@@ -69,17 +69,19 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => ContactUsScreen());
       // admin Screen
       case adminAfterLogin:
-        return MaterialPageRoute(builder: (_) => AdminAfterLoginScreen());
+        return MaterialPageRoute(builder: (_) => const AdminAfterLoginScreen());
       case adminDashboard:
-        return MaterialPageRoute(builder: (_) => AdminDashboard());
+        return MaterialPageRoute(builder: (_) => const AdminDashboard());
       case adminHomeScreen:
-        return MaterialPageRoute(builder: (_) => AdminHomeScreen());
+        return MaterialPageRoute(builder: (_) => const AdminHomeScreen());
       case manageBookingScreen:
-        return MaterialPageRoute(builder: (_) => ManageBookingScreen());
+        return MaterialPageRoute(builder: (_) => const ManageBookingScreen());
       case manageUsersScreen:
-        return MaterialPageRoute(builder: (_) => ManageUsersScreen());
+        return MaterialPageRoute(builder: (_) => const ManageUsersScreen());
       case manageCategoryDetails:
-        return MaterialPageRoute(builder: (_) => ManageCategoryDetailsScreen());
+        return MaterialPageRoute(
+            builder: (_) => const ManageCategoryDetailsScreen());
+
       default:
         return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(

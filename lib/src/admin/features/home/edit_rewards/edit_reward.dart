@@ -30,7 +30,7 @@ class _EditRewardScreenState extends State<EditRewardScreen> {
                 color: AppColors.hintColor,
               ),
               color: AppColors.black),
-          height: 210.h,
+          height: 220.h,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

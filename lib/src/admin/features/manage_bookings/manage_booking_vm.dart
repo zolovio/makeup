@@ -10,8 +10,8 @@ class ManageBookingVm extends ChangeNotifier {
   bool isSearchExpand = false;
   List<BookingOrderData> bookingOrderList = [
     BookingOrderData(
-        customerName: "Sami",
-        productName: "Hairs Extensions",
+        customerName: "AbC XyZ",
+        productName: "Nails Extensions with Nail Paint",
         productSize: "Long",
         dateTime: 'Thu, 24 Oct,2022 | 10:00 AM',
         email: "abc12@gmail.com",
@@ -22,7 +22,7 @@ class ManageBookingVm extends ChangeNotifier {
         convenienceFees: "150",
         totalAmount: "1900"),
     BookingOrderData(
-        customerName: "Sami",
+        customerName: "Sami Ullah",
         productName: "Hairs Extensions",
         productSize: "Shoulder",
         dateTime: 'Thu, 24 Oct,2022 | 10:00 AM',
@@ -34,7 +34,7 @@ class ManageBookingVm extends ChangeNotifier {
         convenienceFees: "150",
         totalAmount: "1900"),
     BookingOrderData(
-        customerName: "Sami",
+        customerName: "Sami Ullah",
         productName: "Hairs Extensions",
         productSize: "Medium",
         dateTime: 'Thu, 24 Oct,2022 | 10:00 AM',

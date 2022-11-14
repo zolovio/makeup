@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makeup/src/admin/features/admin_dashboard/admin_appbar.dart';
+import 'package:makeup/src/admin/features/manage_bookings/manage_booking_vm.dart';
 import 'package:makeup/src/admin/features/manage_users/manage_users_vm.dart';
 import 'package:makeup/src/core/ui/common_widget/users_list_tile.dart';
 import 'package:makeup/src/core/ui/theme.dart';
@@ -20,6 +21,8 @@ class _ManageUsersScreenState extends State<ManageUsersScreen> {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(manageUsersVmProvider);
+      final _bookingsVm = ref.watch(manageBookingVmProvider);
+
       return AdminAppBar(
         showText: true,
         searchController: _vm.searchController,
@@ -72,7 +75,19 @@ class _ManageUsersScreenState extends State<ManageUsersScreen> {
                         serialNum: _vm.usersDataList[index].serialNum,
                         name: _vm.usersDataList[index].name,
                         phoneNum: _vm.usersDataList[index].phoneNum,
-                        onTapFunc: () => _vm.onUserTap(),
+                        onTapFunc: () => _vm.onUserTap(
+                          context,
+                          _bookingsVm.bookingOrderList,
+                          imgUrl: _vm.usersDataList[index].imgUrl,
+                          name: _vm.usersDataList[index].name,
+                          dob: _vm.usersDataList[index].dob,
+                          gender: _vm.usersDataList[index].gender,
+                          maritalStatus: _vm.usersDataList[index].maritalStatus,
+                          nationality: _vm.usersDataList[index].nationality,
+                          address: _vm.usersDataList[index].address,
+                          email: _vm.usersDataList[index].email,
+                          phoneNum: _vm.usersDataList[index].phoneNum,
+                        ),
                       ),
                     );
                   },

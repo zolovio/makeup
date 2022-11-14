@@ -30,12 +30,12 @@ class _BannerTilesState extends State<BannerTiles> {
               ? Container(
                   alignment: Alignment.center,
                   height: 90.h,
-                  width: 100.h,
+                  width: 110.h,
                   child: Text(
                     widget.title,
                     textAlign: TextAlign.center,
                     style: AppDecoration.textStyle(
-                        fontSize: 20.h,
+                        fontSize: 18.h,
                         color: AppColors.yellow,
                         fontWeight: FontWeight.w600),
                   ),
@@ -43,14 +43,14 @@ class _BannerTilesState extends State<BannerTiles> {
               : Text(
                   widget.title,
                   style: AppDecoration.textStyle(
-                      fontSize: 20.h,
+                      fontSize: 19.h,
                       color: AppColors.yellow,
                       fontWeight: FontWeight.w600),
                 ),
           Container(
             alignment: Alignment.center,
-            height: (widget.isReward == true) ? 50.h : 60.h,
-            width: 80.h,
+            height: (widget.isReward == true) ? 52.h : 64.h,
+            width: 82.h,
             decoration: BoxDecoration(
               color: AppColors.black,
               borderRadius: BorderRadius.circular(20.r),
@@ -70,13 +70,13 @@ class _BannerTilesState extends State<BannerTiles> {
                       ? Icon(
                           Icons.percent,
                           color: AppColors.yellow,
-                          size: 17.h,
+                          size: 16.h,
                         )
                       : null,
                 ),
                 cursorColor: AppColors.yellow,
                 maxLines: (widget.isReward == true) ? 1 : 5,
-                style: TextStyle(color: AppColors.white, fontSize: 17.h),
+                style: TextStyle(color: AppColors.white, fontSize: 16.h),
                 controller: widget.controller,
               ),
             ),

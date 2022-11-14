@@ -35,7 +35,7 @@ class _EditBannerScreenState extends State<EditBannerScreen> {
                 color: AppColors.hintColor,
               ),
               color: AppColors.black),
-          height: 325.h,
+          height: 340.h,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
