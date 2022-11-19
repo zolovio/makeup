@@ -30,5 +30,9 @@ class AdminAfterLoginVm extends ChangeNotifier {
     navigatorKey.currentState!.pushNamed(AppRouter.adminDashboard);
   }
 
-  void onEmployeeTap() {}
+  void onEmployeeTap() {
+    setIsCustomer(false);
+    setIsEmployee(true);
+    navigatorKey.currentState!.pushNamed(AppRouter.adminEmployeeDashboard);
+  }
 }
