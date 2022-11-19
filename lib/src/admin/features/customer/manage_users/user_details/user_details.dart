@@ -94,7 +94,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                               ),
                             ),
                             Positioned(
-                              left: 225.h,
+                              left: 210.h,
                               child: IconButton(
                                   onPressed: () {
                                     _vm.isEditable
@@ -115,7 +115,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                                   )),
                             ),
                             Positioned(
-                              left: 265.h,
+                              left: 245.h,
                               child: IconButton(
                                   onPressed: () {
                                     showDialog(

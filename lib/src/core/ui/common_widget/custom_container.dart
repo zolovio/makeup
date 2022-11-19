@@ -18,8 +18,12 @@ class CustomContainer extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width * 0.30,
-      height: size.height * 0.1,
+      width: (btmLabel == 'Total Employees')
+          ? size.width * 0.40
+          : size.width * 0.35,
+      height: (btmLabel == 'Total Employees')
+          ? size.height * 0.15
+          : size.height * 0.125,
       alignment: Alignment.bottomCenter,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
@@ -34,11 +38,17 @@ class CustomContainer extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: size.height * 0.005,
+          height: (btmLabel == 'Total Employees')
+              ? size.height * 0.030
+              : size.height * 0.02,
         ),
         Container(
-          height: size.height * 0.04,
-          width: size.width * 0.30,
+          height: (btmLabel == 'Total Employees')
+              ? size.height * 0.05
+              : size.height * 0.045,
+          width: (btmLabel == 'Total Employees')
+              ? size.width * 0.40
+              : size.width * 0.35,
           alignment: Alignment.center,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
