@@ -400,7 +400,7 @@ class _BookingCardState extends State<BookingCard> {
                 : Container(
                     alignment: Alignment.topRight,
                     height: 26.h,
-                    width: 200.h,
+                    width: 170.h,
                     child: Text(
                       (leadingTxt == "Reward Points")
                           ? "- ₹$trailingTxt"
